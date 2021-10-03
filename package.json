@@ -1,0 +1,32 @@
+{
+  "name": "study-of-the-day",
+  "version": "1.0.0",
+  "description": "Estimate the end time of study of the day",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alsry922/study-of-the-day.git"
+  },
+  "keywords": [],
+  "author": "Mingyo Jeong<alsry922@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alsry922/study-of-the-day/issues"
+  },
+  "homepage": "https://github.com/alsry922/study-of-the-day#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "nodemon": "^2.0.13"
+  }
+}
