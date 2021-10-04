@@ -6,10 +6,17 @@ html(lang='ko')
   body 
     header
       .logo
-        span SOTD
+        a(href="/")  SOTD
       nav 
         ul 
-          li
+          if loggedIn
+            li
+              a(href="/users/logout") Log out
+          else
+            li
+              a(href="/join") Join
+            li
+              a(href="/login") Login 
     main 
       block content
     include partials/footer
