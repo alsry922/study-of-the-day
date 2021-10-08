@@ -1,12 +1,18 @@
 extends base
 
 block content
-  h1 Create a new account
-  if errorMessage
-    p=errorMessage
-  form(method='post')
-    input(type="text" name="name" placeholder='이름 ex) 홍길동' required)
-    input(type="text" name="username" placeholder='닉네임' required)
-    input(type="email" name="email" placeholder='이메일' required)
-    input(type="password" name="password" placeholder='비밀번호' maxlength='16' required )
-    input(type='submit', value='Sign up')
+  div.join-container
+    h1 Create a new account
+    if errorMessage
+      p=errorMessage
+    form.join-form(method='post')
+      label(for='name') 이름 
+      input(type="text"  id='name' name="name" placeholder='이름 ex) 홍길동' required)
+      label(for='username') 닉네임
+      input(type="text"  id='username' name="username" placeholder='닉네임' required)
+      label(for='email') 이메일
+      input(type="email"  id='email' name="email" placeholder='이메일' required)
+      label(for='password') 비밀번호
+      input(type="password" id='password'  name="password" placeholder='비밀번호' maxlength='16' required )
+      hr
+      input(type='submit', value='Sign up')

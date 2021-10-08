@@ -1,4 +1,22 @@
 extends ../base
+include ../mixins/study
 
 block content
-  h1 This page list your studies of the day
+  div.section-wrapper
+    section.study-section(data-user-id=user._id)
+      div.study-section__title
+        p 오늘의 공부
+      ul.study-list
+        each study in studies
+          +study(study)
+      form(id='study-form')
+        input(id='title-input' type="text" name='title' placeholder='과목' required)
+        input(id='level-input' type="number" name='level' placeholder='난이도' required)
+        input(id='volume-input' type="number" name='volume' placeholder='페이지 수' required)
+        input(type='submit', value='+')
+    section.timer-section
+      div.timer
+        span 00:00
+
+block scripts 
+  script(src="/assets/js/studyList.js") 

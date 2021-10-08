@@ -1,0 +1,16 @@
+header
+  .logo
+    a(href="/")
+      i.far.fa-list-alt  SOTD
+  nav 
+    ul 
+      if loggedIn
+        li
+          a(href="/users/logout") Log out
+        li
+          a(href=`/users/${user._id}/studies`) Studies
+      else
+        li
+          a(href="/join") Join
+        li
+          a(href="/login") Login 

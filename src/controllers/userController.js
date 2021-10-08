@@ -58,7 +58,3 @@ export const logout = (req, res) => {
 };
 
 export const see = (req, res) => {};
-
-export const getStudies = (req, res) => {
-  res.render("user/user-studies", { pageTitle: "studies" });
-};

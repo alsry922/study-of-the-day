@@ -2,21 +2,12 @@ doctype html
 html(lang='ko')
   head
     title #{pageTitle} | SOTD
-    link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+    link(rel="stylesheet", href="/assets/css/styles.css")
   body 
-    header
-      .logo
-        a(href="/")  SOTD
-      nav 
-        ul 
-          if loggedIn
-            li
-              a(href="/users/logout") Log out
-          else
-            li
-              a(href="/join") Join
-            li
-              a(href="/login") Login 
+    include partials/header
     main 
       block content
     include partials/footer
+    block scripts
+    script(src='/assets/js/main.js')

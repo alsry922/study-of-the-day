@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: $pink;
+  .logo {
+    color: $logo_color;
+    i {
+      font-weight: 700;
+      font-size: 24px;
+    }
+  }
+  ul {
+    display: flex;
+    li {
+      padding: 8px 16px;
+      font-weight: 700;
+      color: $white;
+    }
+  }
+}

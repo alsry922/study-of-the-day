@@ -1,0 +1,9 @@
+mixin study(study)
+  li.study(data-study-id=study._id)
+    div.study__title
+      p #{study.title} 난이도: #{study.level} 페이지 수: #{study.volume}
+    div.study__control
+      input(type="text" placeholder='완료시간')
+      div.control-btns
+        button.finish-btn 완료
+        button.remove-btn 삭제

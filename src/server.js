@@ -5,6 +5,7 @@ import MongoStore from "connect-mongo";
 import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import { localsMiddleware } from "./middlewares";
+import apiRouter from "./routers/apiRouter";
 
 const app = express();
 const logger = morgan("dev"); // HTTP request logger middleware for node.js
@@ -14,6 +15,7 @@ app.set("views", process.cwd() + "/src/views"); // Set view files path
 
 app.use(logger);
 app.use(express.urlencoded({ extended: true })); //
+app.use(express.json());
 app.use(
   session({
     secret: process.env.SECRET,
@@ -23,8 +25,9 @@ app.use(
   })
 );
 app.use(localsMiddleware);
-
+app.use("/assets", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/users", userRouter);
+app.use("/apis", apiRouter);
 
 export default app;
