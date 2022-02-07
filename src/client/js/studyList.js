@@ -75,16 +75,20 @@ async function handleClick(event) {
     const study = target.closest(".study");
     const studyId = study.dataset.studyId;
     const finishTimeInput = study.querySelector("input");
+
+    if (finishTimeInput.value === "") return;
+
     const finishTime = finishTimeInput.value;
     const isFinished = true;
-    const response = await fetch(`/apis${userId}/studies/${studyId}`, {
-      method: "patch",
+    const response = await fetch(`/apis/${userId}/studies/${studyId}`, {
+      method: "post",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify({ isFinished, finishTime }),
     });
     if (response.status === 200) {
+      study.remove();
     }
   } else if (target.matches(".remove-btn")) {
     // remove study

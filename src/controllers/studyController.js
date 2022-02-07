@@ -1,3 +1,4 @@
+import { async } from "regenerator-runtime";
 import Study from "../models/Study";
 import User from "../models/User";
 
@@ -43,7 +44,6 @@ export const postStudy = async (req, res) => {
 export const deleteStudy = async (req, res) => {
   const { userId, studyId } = req.params;
   const deletedStudy = await Study.findByIdAndDelete(studyId);
-  console.log(deletedStudy);
   const user = await User.findById(userId);
   const index = user.incompletions.indexOf(
     (study) => String(study._id) === studyId
@@ -58,6 +58,7 @@ export const finishStudy = async (req, res) => {
   const { userId, studyId } = req.params;
   const study = await Study.findById(studyId);
   study.finished = isFinished;
+  study.finishTime = finishTime;
   await study.save();
   const user = await User.findById(userId);
   user.completions.push(studyId);
@@ -67,4 +68,16 @@ export const finishStudy = async (req, res) => {
   user.incompletions.splice(index, 1);
   await user.save();
   return res.sendStatus(OK);
+};
+
+export const getDataForModel = async (req, res) => {
+  const { userId } = req.params;
+  const user = await User.findById(userId).populate("completions");
+  return res.status(OK).json({ user });
+};
+
+export const getDataForPredict = async (req, res) => {
+  const { userId } = req.params;
+  const user = await User.findById(userId).populate("incompletions");
+  return res.status(OK).json({ user });
 };

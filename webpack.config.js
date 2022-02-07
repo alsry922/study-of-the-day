@@ -7,6 +7,8 @@ module.exports = {
   entry: {
     main: `${base}/main.js`,
     studyList: `${base}/studyList.js`,
+    predictTime: `${base}/predictTime.js`,
+    timer: `${base}/timer.js`,
   },
 
   plugins: [

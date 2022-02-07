@@ -10,13 +10,28 @@ block content
         each study in studies
           +study(study)
       form(id='study-form')
-        input(id='title-input' type="text" name='title' placeholder='과목' required)
-        input(id='level-input' type="number" name='level' placeholder='난이도' required)
-        input(id='volume-input' type="number" name='volume' placeholder='페이지 수' required)
-        input(type='submit', value='+')
+        div.input-wrapper
+          input(id='title-input' type="text" name='title' placeholder='과목' required)
+          input(id='level-input' type="number" name='level' placeholder='난이도' required)
+          input(id='volume-input' type="number" name='volume' placeholder='페이지 수' required)
+        button.study-form__submit
+          i.fas.fa-plus
+      div.study-section__predict
+        button.model-btn 예측 공식 만들기
+        button.prediction-btn 완료 시간 예측
     section.timer-section
-      div.timer
-        span 00:00
+      div.predict-part
+        div.predict-part__title 예상 완료 시간
+        div.predict-part__time
+          span 00:00
+      div.timer-part
+        div.timer-part__title 타이머
+        div.timer-part__time
+          span 00:00
+        button.timer-part__start-btn 타이머 시작
+        button.timer-part__stop-btn 타이머 정지
 
 block scripts 
-  script(src="/assets/js/studyList.js") 
+  script(src="/assets/js/studyList.js")
+  script(src='/assets/js/predictTime.js')
+  script(src='/assets/js/timer.js')

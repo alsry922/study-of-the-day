@@ -3,9 +3,7 @@
   margin-top: 50px;
   width: 100%;
   height: 600px;
-  input {
-    width: 80px;
-  }
+
   .study-section {
     display: flex;
     flex-direction: column;
@@ -29,7 +27,7 @@
       border-radius: 24px 24px 0 0;
     }
     .study-list {
-      height: 70%;
+      height: 60%;
       padding: 12px 8px;
       overflow-y: scroll;
       .study {
@@ -45,7 +43,100 @@
     }
     #study-form {
       display: flex;
-      justify-content: space-between;
+      padding: 8px 12px;
+      border-top: 1px solid $grey;
+      border-bottom: 1px solid $grey;
+      // border: 1px solid $grey;
+      input {
+        padding: 8px 4px;
+      }
+      .input-wrapper {
+        flex-grow: 0.8;
+        display: flex;
+        flex-direction: column;
+      }
+      .study-form__submit {
+        flex-grow: 0.2;
+      }
+    }
+    .study-section__predict {
+      display: flex;
+      flex-grow: 1;
+      background: radial-gradient(
+        circle,
+        rgba(238, 174, 202, 1) 0%,
+        rgba(148, 187, 233, 1) 100%
+      );
+      button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+      }
+      .model-btn {
+        flex-grow: 1;
+      }
+      .prediction-btn {
+        flex-grow: 1;
+      }
+    }
+  }
+  .timer-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    .predict-part {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      .predict-part__title {
+        text-align: center;
+        background: radial-gradient(
+          circle,
+          rgba(238, 174, 202, 1) 0%,
+          rgba(148, 187, 233, 1) 100%
+        );
+        font-size: 20px;
+        font-weight: 700;
+        padding: 10px 0;
+        color: $white;
+        border-radius: 24px 24px 0 0;
+      }
+      .predict-part__time {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        background-color: white;
+        font-size: 36px;
+      }
+    }
+    .timer-part {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      .timer-part__title {
+        text-align: center;
+        background: radial-gradient(
+          circle,
+          rgba(238, 174, 202, 1) 0%,
+          rgba(148, 187, 233, 1) 100%
+        );
+        font-size: 20px;
+        font-weight: 700;
+        padding: 10px 0;
+        color: $white;
+        border-radius: 24px 24px 0 0;
+      }
+      .timer-part__time {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        background-color: white;
+        font-size: 36px;
+      }
     }
   }
 }
